@@ -1,0 +1,6 @@
+npm i --save-dev gulp gulp-less browserify tsify gulp-util vinyl-source-stream babel-core babel-preset-es2015
+npm i --save angular2 reflect-metadata rxjs zone.js bootstrap
+
+
+base project
+https://github.com/artemdemo/angular2-todo
