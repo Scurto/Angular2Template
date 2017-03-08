@@ -1,11 +1,16 @@
 import { Component } from "@angular/core";
 
-interface ITodo {
-    title: string;
-    completed: boolean;
+class Todo {
+    // title: string;
+    // completed: boolean;
+
+    constructor(public title: string,
+                public completed: boolean = false) {
+
+    }
 }
 
-const todos: ITodo[] = [
+const todos: Todo[] = [
     {
         title: "Learn javascript",
         completed: true
@@ -28,17 +33,30 @@ const todos: ITodo[] = [
 })
 export class AppComponent{
     title: string = "Hello Angular";
-    componentTasks: ITodo[] = todos;
+    componentTasks: Todo[] = todos;
+    newTodoTitle: string = '';
 
-    toggle(todo: ITodo) {
+    toggle(todo: Todo) {
         todo.completed = !todo.completed;
     }
 
-    delete(todo: ITodo) {
+    delete(todo: Todo) {
         let index = this.componentTasks.indexOf(todo);
 
         if (index > -1) {
             this.componentTasks.splice(index, 1);
         }
+    }
+
+    create() {
+    // create(event: Event, title: string) {
+    // create(event: Event, titleInput: HTMLInputElement) {
+
+        let todo: Todo = new Todo(this.newTodoTitle);
+
+        this.componentTasks.push(todo);
+        this.newTodoTitle = '';
+
+        // titleInput.value = "";
     }
 }
