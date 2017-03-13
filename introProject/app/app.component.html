@@ -4,31 +4,8 @@
 </header>
 
 <main>
-    <!--<form class="todo-form" (submit)="create($event, titleInput.value); titleInput.value = '';">-->
-    <form class="todo-form" (ngSubmit)="create(); todoForm.reset()" #todoForm="ngForm">
-        <input [(ngModel)]="newTodoTitle" name="title" type="text" placeholder="What will to do?" required>
-        <!--<input type="text" placeholder="What will to do?" #titleInput>-->
-        <button type="submit" [disabled]="todoForm.form.invalid">Add</button>
-    </form>
 
-    <section class="todo-list" *ngIf="componentTasks.length > 0">
-        <div class="todo-item" *ngFor="let todo of componentTasks" [ngClass] = "{ 'completed' : todo.completed }">
-            <button class="checkbox icon" (click)="toggle(todo)">
-                <!--<i *ngIf="!todo.completed" class="material-icons">check_box_outline_blank</i>-->
-                <!--<i *ngIf="todo.completed" class="material-icons">check_box</i>-->
+    <todo-form></todo-form>
 
-                <!--<i class="material-icons">{{ todo.completed ? 'check_box' : 'check_box_outline_blank'}}</i>                -->
-
-                <i class="material-icons" [innerText] = "todo.completed ? 'check_box' : 'check_box_outline_blank'"></i>
-            </button>
-
-            <span class="title">{{ todo.title }}</span>
-
-            <div class="actions">
-                <button class="delete icon" (click)="delete(todo)">
-                    <i class="material-icons">delete</i>
-                </button>
-            </div>
-        </div>
-    </section>
+    <todo-list></todo-list>
 </main>
