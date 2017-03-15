@@ -2,7 +2,7 @@
  * Created by scurto on 14.03.2017.
  */
 
-import {Component} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import {Todo} from "../shared/Todo";
 
 @Component({
@@ -13,5 +13,16 @@ import {Todo} from "../shared/Todo";
 })
 
 export class TodoItemComponent {
-    todo: Todo = new Todo('asdf')
+    @Input() inputTodoItemFromComponentTask: Todo;
+    @Output() deleteFlagForOutputEventEmitter = new EventEmitter();
+
+    toggle() {
+        this.inputTodoItemFromComponentTask.completed = !this.inputTodoItemFromComponentTask.completed;
+    }
+
+
+
+    onDelete() {
+        this.deleteFlagForOutputEventEmitter.emit(this.inputTodoItemFromComponentTask)
+    }
 }

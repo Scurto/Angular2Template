@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import {Todo} from "./shared/Todo";
+import {arrayOfData} from "./shared/Data";
 
 
 @Component({
@@ -9,8 +11,12 @@ import { Component } from "@angular/core";
 })
 export class AppComponent{
     title: string = "Hello Angular";
+    localArray: Todo[] = arrayOfData;
 
-
+    create(title: string) {
+        const newTask = new Todo(title);
+        this.localArray.push(newTask)
+    }
 
 
 

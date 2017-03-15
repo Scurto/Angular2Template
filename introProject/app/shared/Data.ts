@@ -1,4 +1,4 @@
-export const todos = [
+export const arrayOfData = [
     {
         title: "Learn javascript",
         completed: true

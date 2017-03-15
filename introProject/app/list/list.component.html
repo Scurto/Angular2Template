@@ -1,3 +1,28 @@
-<div class="todo-list" *ngIf="componentTasks.length">
-    <todo-item *ngFor="let todo of componentTasks"></todo-item>
+<div class="todo-list" *ngIf="inputArraysInTodoListComponent.length">
+    <todo-item *ngFor="let todo of inputArraysInTodoListComponent" [inputTodoItemFromComponentTask]="todo" (deleteFlagForOutputEventEmitter)="delete($event)"></todo-item>
 </div>
+
+
+<!--*ngFor="let todo of componentTasks"-->
+<!--prohod po masivy 'componentTasks' kotorui opisan v TodoListComponent-->
+
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--[inputTodoItemFromComponentTask]="todo"-->
+
+<!--inputTodoItemFromComponentTask - eto input peremenna9, kotora9 opisana v TodoItemComponent-->
+<!--@Input() inputTodoItemFromComponentTask: Todo;-->
+<!--todo - element iz massiva componentTasks-->
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--(deleteFlagForOutputEventEmitter)="delete($event)"-->
+
+<!--deleteFlagForOutputEventEmitter eto sluwatel', on opisan v TodoItemComponent-->
+<!--@Output() deleteFlagForOutputEventEmitter = new EventEmitter();-->
+
+<!--onDelete() {-->
+<!--this.deleteFlagForOutputEventEmitter.emit(this.inputTodoItemFromComponentTask)-->
+<!--}-->
+
+<!--v $event zapisano zna4enie s kotorum bydem rabotat'-->
