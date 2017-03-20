@@ -1,6 +1,6 @@
 <!--<div class="todo-item" [ngClass] = "{ 'completed' : todo.completed }">-->
 <div class="todo-item" [class.completed] = "inputTodoItemFromComponentTask.completed">
-    <button class="checkbox icon" (click)="toggle()">
+    <button class="checkbox icon" (click)="onToggle()">
         <!--<i *ngIf="!todo.completed" class="material-icons">check_box_outline_blank</i>-->
         <!--<i *ngIf="todo.completed" class="material-icons">check_box</i>-->
 
