@@ -3,7 +3,7 @@
  */
 
 import {Component, Input, Output, EventEmitter} from "@angular/core";
-import {Todo} from "../shared/Todo";
+import {Todo} from "../../shared/Todo";
 
 @Component({
     moduleId: module.id,

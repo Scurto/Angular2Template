@@ -1,5 +1,5 @@
 <div class="todo-list" *ngIf="inputArraysInTodoListComponent.length">
-    <todo-item *ngFor="let todo of inputArraysInTodoListComponent" [inputTodoItemFromComponentTask]="todo" (deleteFlagForOutputEventEmitter)="delete($event)" (toggle)="toggle($event)"></todo-item>
+    <todo-item *ngFor="let todo of inputArraysInTodoListComponent" [inputTodoItemFromComponentTask]="todo" (deleteFlagForOutputEventEmitter)="onDelete($event)" (toggle)="onToggle($event)"></todo-item>
 </div>
 
 

@@ -6,9 +6,10 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./shared/DataService";
-import {TodoFormComponent} from "./form/form.component"
-import {TodoListComponent} from "./list/list.component";
-import {TodoItemComponent} from "./item/item.component";
+import {TodoFormComponent} from "./host/form/form.component"
+import {TodoListComponent} from "./host/list/list.component";
+import {TodoItemComponent} from "./host/item/item.component";
+import {HostComponent} from "./host/host.component";
 import {TodoService} from "./shared/Service";
 
 @NgModule({
@@ -22,7 +23,8 @@ import {TodoService} from "./shared/Service";
         AppComponent,
         TodoFormComponent,
         TodoListComponent,
-        TodoItemComponent
+        TodoItemComponent,
+        HostComponent
     ],
     providers: [
         TodoService

@@ -1,24 +1,24 @@
 import {Injectable} from '@angular/core'
 import {Todo} from "./Todo";
 import {Http, Headers, RequestOptions} from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import {toPromise} from "rxjs/operator/toPromise";
 
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class TodoService {
     private apiUrl = 'api/jsonArray';
-    showedArray: Todo[] = [];
+
 
     constructor(private http: Http) {
 
     }
 
-    getTodos(): Promise<Todo[]> {
-        return this.http.get(this.apiUrl)
-            .toPromise()
-            .then(res => res.json().data)
-            .then(someName => this.showedArray = someName)
+    getTodos(): Observable<Todo[]> {
+            return this.http.get(this.apiUrl)
+            .map(res => res.json().data as Todo[])
             .catch(this.handleError);
     }
 
@@ -29,10 +29,9 @@ export class TodoService {
         let todo = new Todo(title);
         // this.showedArray.push(todo);
 
-        this.http.post(this.apiUrl, todo, options)
-            .toPromise()
-            .then(res => res.json().data)
-            .then(someName => this.showedArray.push(todo))
+        return this.http.post(this.apiUrl, todo, options)
+
+            .map(res => res.json().data)
             .catch(this.handleError);
     }
 
@@ -41,14 +40,7 @@ export class TodoService {
         let options = new RequestOptions({headers});
         let url = `${this.apiUrl}/${todo.id}`;
 
-        this.http.delete(url, options)
-            .toPromise()
-            .then(res => {
-                let index = this.showedArray.indexOf(todo);
-                if (index > -1) {
-                    this.showedArray.splice(index, 1);
-                }
-            })
+         return this.http.delete(url, options)
             .catch(this.handleError);
 
 
@@ -60,11 +52,7 @@ export class TodoService {
         let options = new RequestOptions({headers});
         let url = `${this.apiUrl}/${todo.id}`;
 
-        this.http.delete(url, options)
-            .toPromise()
-            .then(res => {
-                todo.completed = !todo.completed;
-            })
+        return this.http.delete(url, options)
             .catch(this.handleError);
 
 
@@ -72,6 +60,6 @@ export class TodoService {
 
     private handleError(error: any) {
         console.error("Error -> ", error);
-        return Promise.reject(error.message || error);
+        return Observable.throw(error.message || error);
     }
 }
