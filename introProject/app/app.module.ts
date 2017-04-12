@@ -11,23 +11,27 @@ import {TodoListComponent} from "./host/list/list.component";
 import {TodoItemComponent} from "./host/item/item.component";
 import {HostComponent} from "./host/host.component";
 import {TodoService} from "./shared/Service";
+import {HttpJsonComponent} from "./httpJsonTest/httpJson.component";
+import {HttpJsonService} from "./shared/HttpJsonService";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService)
+        InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
     ],
     declarations: [
         AppComponent,
         TodoFormComponent,
         TodoListComponent,
         TodoItemComponent,
-        HostComponent
+        HostComponent,
+        HttpJsonComponent
     ],
     providers: [
-        TodoService
+        TodoService,
+        HttpJsonService
     ],
     bootstrap: [AppComponent]
 })
