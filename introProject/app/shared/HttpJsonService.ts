@@ -30,4 +30,17 @@ export class HttpJsonService {
             }
         ).map(res => res.json());
     }
+
+    register(json: any) {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        return this._http.post(
+            'http://localhost:8080/register',
+            json,
+            {
+                headers: headers
+            }
+        ).map(res => res.json());
+    }
 }
