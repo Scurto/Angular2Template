@@ -13,12 +13,16 @@ import {HostComponent} from "./host/host.component";
 import {TodoService} from "./shared/Service";
 import {HttpJsonComponent} from "./httpJsonTest/httpJson.component";
 import {HttpJsonService} from "./shared/HttpJsonService";
+import {HeaderComponent} from "./header/header.component";
+import {routing} from "./app.routing";
+import {FormBasicComponent} from "./FormsBasicExample/formBasic.component";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
+        routing,
         InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
     ],
     declarations: [
@@ -27,7 +31,9 @@ import {HttpJsonService} from "./shared/HttpJsonService";
         TodoListComponent,
         TodoItemComponent,
         HostComponent,
-        HttpJsonComponent
+        HttpJsonComponent,
+        HeaderComponent,
+        FormBasicComponent
     ],
     providers: [
         TodoService,

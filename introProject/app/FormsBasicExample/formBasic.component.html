@@ -1,0 +1,18 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email"
+               required
+               ngControll="myEmail"
+               [(ngModel)]="inputData.myEmail">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input name="password" id="exampleInputPassword1" placeholder="Password" type="password" class="form-control"
+               required
+               ngControll="myPassword"
+               [(ngModel)]="inputData.myPassword">
+    </div>
+
+    <button type="submit" class="btn btn-default" [disabled]="!myForm.valid" >Submit</button>
+</form>
