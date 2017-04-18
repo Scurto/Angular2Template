@@ -22,10 +22,10 @@ export class FormBasicComponent implements OnInit {
         subscribe(
             data => {
                 this.inputData = JSON.stringify(data);
-                console.log("I CANT SEE DATA HERE: ", this.getData);
+                console.log("I CANT SEE DATA HERE: ", data);
             },
             // error => alert(error),
-            () => console.log("request completed", this.getData)
+            (err) => console.log("request completed", err)
         );
     }
 

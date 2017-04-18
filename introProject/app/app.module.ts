@@ -2,7 +2,7 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppComponent} from "./app.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./shared/DataService";
@@ -16,6 +16,7 @@ import {HttpJsonService} from "./shared/HttpJsonService";
 import {HeaderComponent} from "./header/header.component";
 import {routing} from "./app.routing";
 import {FormBasicComponent} from "./FormsBasicExample/formBasic.component";
+import {FormGroupComponent} from "./FormsGroupAndValidators/formGroup.component";
 
 @NgModule({
     imports: [
@@ -23,6 +24,7 @@ import {FormBasicComponent} from "./FormsBasicExample/formBasic.component";
         FormsModule,
         HttpModule,
         routing,
+        ReactiveFormsModule,
         InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
     ],
     declarations: [
@@ -33,7 +35,8 @@ import {FormBasicComponent} from "./FormsBasicExample/formBasic.component";
         HostComponent,
         HttpJsonComponent,
         HeaderComponent,
-        FormBasicComponent
+        FormBasicComponent,
+        FormGroupComponent
     ],
     providers: [
         TodoService,
