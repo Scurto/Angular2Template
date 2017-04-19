@@ -115,7 +115,7 @@ header h1 {
 }
 
 main {
-    width: 600px;
+    /*width: 600px;*/
     margin: auto;
     padding: 2rem;
     display: flex;
