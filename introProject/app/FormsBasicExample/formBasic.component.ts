@@ -18,14 +18,24 @@ export class FormBasicComponent implements OnInit {
         console.log(values);
         console.log('inputData', this.inputData);
 
-        this.service.register(values).
+        // this.service.register(values).
+        // subscribe(
+        //     data => {
+        //         this.inputData = JSON.stringify(data);
+        //         console.log("I CANT SEE DATA HERE: ", data);
+        //     },
+        //     // error => alert(error),
+        //     (err) => console.log("request completed", err)
+        // );
+
+        this.service.getJsonFromJAXRS(values).
         subscribe(
             data => {
                 this.inputData = JSON.stringify(data);
                 console.log("I CANT SEE DATA HERE: ", data);
             },
             // error => alert(error),
-            (err) => console.log("request completed", err)
+            (err) => console.log("request failed", err)
         );
     }
 

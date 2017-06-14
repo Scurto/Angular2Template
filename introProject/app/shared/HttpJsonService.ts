@@ -44,4 +44,18 @@ export class HttpJsonService {
             }
         ).map(res => res.status);
     }
+
+    getJsonFromJAXRS(json: any) {
+        var headers = new Headers();
+        // headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type', 'application/json');
+
+        return this._http.post(
+            'http://localhost:8080/webapi/get_test_json',
+            json,
+            {
+                headers: headers
+            }
+        ).map(res => res.status);
+    }
 }
