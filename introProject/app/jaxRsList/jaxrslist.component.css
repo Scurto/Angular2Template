@@ -1,0 +1,15 @@
+.flex-container {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.flex-container .forHover {
+    margin-left: auto;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.flex-container:hover .forHover {
+    opacity: 1;
+}

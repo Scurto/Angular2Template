@@ -1,5 +1,20 @@
-<div *ngFor="let task of tasksList">
+<div *ngFor="let task of tasksList" class="flex-container">
+    <!--<div>-->
+        <!--<i class="glyphicon glyphicon-check"></i>-->
+    <!--</div>-->
+    <button class="checkbox icon" (click)="onToggle(task)">
+        <i class="material-icons" [innerText] = "task.completed ? 'check_box' : 'check_box_outline_blank'"></i>
+    </button>
+
+    <!--glyphicon glyphicon-unchecked-->
     <div>{{task.author}}</div>
     <div>{{task.id}}</div>
     <div>{{task.message}}</div>
+
+    <div class="forHover">
+        <button class="icon" (click)="onDelete(task)">
+            <i class="material-icons">delete</i>
+        </button>
+    </div>
+
 </div>

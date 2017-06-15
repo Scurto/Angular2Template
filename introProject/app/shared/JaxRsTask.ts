@@ -6,4 +6,5 @@ export class JaxRsTask {
     created: number;
     id: number;
     message: string;
+    completed: boolean;
 }

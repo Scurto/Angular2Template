@@ -13,6 +13,7 @@ import {JaxRsTask} from "../shared/JaxRsTask";
 
 export class JaxRsListComponent implements OnInit {
     tasksList: JaxRsTask[];
+    // checkBoxFlag: boolean = true;
 
     ngOnInit(): void {
         this.tasksList = [];
@@ -30,6 +31,16 @@ export class JaxRsListComponent implements OnInit {
 
     constructor(private _service: JaxRsService) {
 
+    }
+
+    onToggle(task: JaxRsTask) {
+        task.completed = !task.completed;
+    }
+
+    onDelete(task: JaxRsTask) {
+        //TODO REMOVING ELEMENT (task) FROM ARRAY (tasksList)  - not supported in IE
+        this.tasksList = this.tasksList.filter(item => item !== task);
+        console.log(this.tasksList);
     }
 
 }
