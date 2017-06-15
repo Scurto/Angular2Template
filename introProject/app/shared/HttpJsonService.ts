@@ -51,7 +51,7 @@ export class HttpJsonService {
         headers.append('Content-Type', 'application/json');
 
         return this._http.post(
-            'http://localhost:8080/webapi/get_test_json',
+            'http://localhost:8081/webapi/get_test_json',
             json,
             {
                 headers: headers

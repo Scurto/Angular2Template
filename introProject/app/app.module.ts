@@ -17,6 +17,8 @@ import {HeaderComponent} from "./header/header.component";
 import {routing} from "./app.routing";
 import {FormBasicComponent} from "./FormsBasicExample/formBasic.component";
 import {FormGroupComponent} from "./FormsGroupAndValidators/formGroup.component";
+import {JaxRsListComponent} from "./jaxRsList/jaxrslist.component";
+import {JaxRsService} from "./shared/JaxRsService";
 
 @NgModule({
     imports: [
@@ -36,11 +38,13 @@ import {FormGroupComponent} from "./FormsGroupAndValidators/formGroup.component"
         HttpJsonComponent,
         HeaderComponent,
         FormBasicComponent,
-        FormGroupComponent
+        FormGroupComponent,
+        JaxRsListComponent
     ],
     providers: [
         TodoService,
-        HttpJsonService
+        HttpJsonService,
+        JaxRsService
     ],
     bootstrap: [AppComponent]
 })
