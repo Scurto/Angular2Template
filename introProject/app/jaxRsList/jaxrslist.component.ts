@@ -18,7 +18,7 @@ export class JaxRsListComponent implements OnInit {
     ngOnInit(): void {
         this.tasksList = [];
         console.log('ngOnInit');
-        this._service.getTasks().subscribe(
+        this._service.getTasksHiber().subscribe(
             resp => {
                 this.tasksList = resp.json();
 
