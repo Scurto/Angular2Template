@@ -13,3 +13,14 @@
 .flex-container:hover .forHover {
     opacity: 1;
 }
+
+.addTasksPanel {
+    height: 200px;
+    width: 400px;
+    background: lightcoral;
+}
+.addTasksPanelHide {
+    height: 0px;
+    width: 400px;
+    background: lightcoral;
+}
