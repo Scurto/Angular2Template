@@ -13,7 +13,7 @@ import {JaxRsTask} from "../shared/JaxRsTask";
 
 export class JaxRsListComponent implements OnInit {
     tasksList: JaxRsTask[];
-    addTaskFlag;
+    addTaskFlag: any;
     // checkBoxFlag: boolean = true;
 
 
