@@ -1,7 +1,10 @@
-import {Component, OnInit} from "@angular/core";
+import {
+    Component, OnInit, ViewChild
+} from "@angular/core";
 import {Todo} from "../shared/Todo";
 import {JaxRsService} from "../shared/JaxRsService";
 import {JaxRsTask} from "../shared/JaxRsTask";
+
 
 
 @Component({
@@ -13,13 +16,16 @@ import {JaxRsTask} from "../shared/JaxRsTask";
 
 export class JaxRsListComponent implements OnInit {
     tasksList: JaxRsTask[];
-    addTaskFlag: any;
-    // checkBoxFlag: boolean = true;
+    addTaskFlag: boolean;
+    @ViewChild('collapseExample') collapseExample: any;
 
+    public myStyle:string = "card card-block card-header";
+    public addTasksPanelClass:string = 'addTasksPanel';
 
     ngOnInit(): void {
         this.tasksList = [];
         this.addTaskFlag = true;
+
         console.log('ngOnInit');
 
         this._service.getTasksHiber().subscribe(
@@ -37,8 +43,14 @@ export class JaxRsListComponent implements OnInit {
 
     }
 
-    onAddTask() {
-        this.addTaskFlag = !this.addTaskFlag;
+    ngAfterViewInit() {
+        // After the view is initialized, this.userProfile will be available
+       console.log('ngAfterViewInit');
+    }
+
+    ngAfterContentInit() {
+        // Component content has been initialized
+        console.log('ngAfterContentInit');
     }
 
     onToggle(task: JaxRsTask) {
@@ -84,4 +96,54 @@ export class JaxRsListComponent implements OnInit {
         )
     }
 
+    public isCollapsed:boolean = true;
+    public baseClassName:string;
+
+    public collapsed(event:any):void {
+        console.log(event);
+
+        event._el.nativeElement.className = 'collapse reduceMyHeight';
+    }
+
+    public expanded(event:any):void {
+        console.log(event);
+        event._el.nativeElement.className = 'zoomMyHeight';
+    }
+
+    public classTest() {
+        console.log('this.baseClassName', this.myStyle);
+    }
+    // ngOnInit() {
+    //     // Properties are resolved and things like
+    //     // this.mapWindow and this.mapControls
+    //     // had a chance to resolve from the
+    //     // two child components <map-window> and <map-controls>
+    // }
+    // ngOnDestroy() {
+    //     // Speak now or forever hold your peace
+    // }
+    // ngDoCheck() {
+    //     // Custom change detection
+    // }
+    // ngOnChanges(changes) {
+    //     // Called right after our bindings have been checked but only
+    //     // if one of our bindings has changed.
+    //     //
+    //     // changes is an object of the format:
+    //     // {
+    //     //   'prop': PropertyUpdate
+    //     // }
+    // }
+    // ngAfterContentInit() {
+    //     // Component content has been initialized
+    // }
+    // ngAfterContentChecked() {
+    //     // Component content has been Checked
+    // }
+    // ngAfterViewInit() {
+    //     // Component views are initialized
+    // }
+    // ngAfterViewChecked() {
+    //     // Component views have been checked
+    // }
 }

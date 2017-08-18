@@ -14,7 +14,9 @@
             '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-
+            // 'ngx-bootstrap': 'npm:ngx-bootstrap/bundles/ngx-bootstrap.umd.js',
+            // 'moment': 'node_modules/moment/moment.js',
+            "ngx-bootstrap": "node_modules/ngx-bootstrap",
             'rxjs': 'npm:rxjs',
             'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
         },
@@ -23,6 +25,7 @@
                 main: './main.js',
                 defaultExtension: 'js'
             },
+            'ngx-bootstrap': { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' },
             rxjs: {
                 defaultExtension: 'js'
             }

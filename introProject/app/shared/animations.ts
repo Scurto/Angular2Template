@@ -16,12 +16,38 @@ export const PRETTY_ANIMATION = trigger('heroState', [
 
 export const TEST_ANIMATION = trigger('visibility', [
     state('shown', style({
-        height: '200px'
+        height: '270px',
+        display: 'block'
     })),
     state('hidden', style({
-        height: '0'
+        height: '0',
+        display: 'none'
     })),
+    transition('void => *', animate('0s')),
     transition('* => *', animate('.5s'))
+
+
+    // bounceOutLeft
+    // transition('shown => hidden', animate('100ms ease-in')),
+    // transition('hidden => shown', animate('100ms ease-out'))
+
+]);
+
+export const MY_ROTATE = trigger('rotate', [
+    state('add', style({
+        transform: 'rotate(0deg)',
+        color: 'lightgreen'
+    })),
+    state('close', style({
+        transform: 'rotate(45deg)',
+        color: 'lightsalmon'
+    })),
+    transition('void => *', animate('0s', keyframes([
+        style({}),
+        style({})
+    ]))),
+    transition('* => *', animate('0.5s')),
+    transition('add <=> close', animate('1s'))
 
 
     // bounceOutLeft

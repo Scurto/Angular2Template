@@ -19,6 +19,9 @@ import {FormBasicComponent} from "./FormsBasicExample/formBasic.component";
 import {FormGroupComponent} from "./FormsGroupAndValidators/formGroup.component";
 import {JaxRsListComponent} from "./jaxRsList/jaxrslist.component";
 import {JaxRsService} from "./shared/JaxRsService";
+import { CollapseModule, AlertModule, ModalModule } from 'ngx-bootstrap';
+import {TogglePanelComponent} from "./shared/common/togglePanel/togglePanel.component";
+
 
 @NgModule({
     imports: [
@@ -27,6 +30,9 @@ import {JaxRsService} from "./shared/JaxRsService";
         HttpModule,
         routing,
         ReactiveFormsModule,
+        CollapseModule.forRoot(),
+        AlertModule.forRoot(),
+        ModalModule.forRoot(),
         InMemoryWebApiModule.forRoot(InMemoryDataService, {passThruUnknownUrl: true})
     ],
     declarations: [
@@ -39,7 +45,9 @@ import {JaxRsService} from "./shared/JaxRsService";
         HeaderComponent,
         FormBasicComponent,
         FormGroupComponent,
+        TogglePanelComponent,
         JaxRsListComponent
+
     ],
     providers: [
         TodoService,

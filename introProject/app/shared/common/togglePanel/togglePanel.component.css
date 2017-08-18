@@ -1,0 +1,48 @@
+.addButton {
+    transform: rotate(0deg);
+    color: lightgreen;
+    display: inline-flex;
+    animation: 2s infinite;
+    cursor: pointer;
+}
+
+.addTasksPanel {
+    height: 0px;
+    overflow: overlay;
+}
+
+@-webkit-keyframes myRotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(45deg);}
+}
+
+@keyframes myRotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(45deg);}
+}
+
+.addButton .material-icons {
+    font-size: 40px;
+}
+
+.newTaskFormGroupFormStyle {
+    width: 400px;
+}
+
+input.ng-untouched {
+    border: none !important;
+}
+input.ng-valid {
+    border-left: 5px solid green;
+}
+input.ng-invalid {
+    border-left: 5px solid red;
+}
+
+.alert-fixed {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 9999;
+    margin: 20px;
+}

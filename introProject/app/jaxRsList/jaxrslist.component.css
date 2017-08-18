@@ -14,13 +14,40 @@
     opacity: 1;
 }
 
-.addTasksPanel {
-    height: 200px;
-    width: 400px;
-    background: lightcoral;
+.collapse {
+    /*opacity: 0;*/
+    /*height: 0;*/
+    display: block !important;
+    height: 0px !important;
+    overflow: overlay !important;
+    background: yellowgreen;
 }
-.addTasksPanelHide {
-    height: 0px;
-    width: 400px;
-    background: lightcoral;
+
+.show {
+    display: block !important;
+    height: 200px !important;
+    overflow: overlay !important;
+    background: yellowgreen;
+}
+
+@keyframes zoomMyHeight {
+    from {height: 0px;}
+    to {height: 200px;}
+}
+
+@keyframes reduceMyHeight {
+    from {height: 200px;}
+    to {height: 0px;}
+}
+
+.zoomMyHeight {
+    animation: zoomMyHeight infinite;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+.reduceMyHeight {
+    animation: reduceMyHeight infinite;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
 }

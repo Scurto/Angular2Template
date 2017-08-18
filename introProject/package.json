@@ -25,6 +25,9 @@
     "systemjs": "0.19.40",
     "zone.js": "0.7.4",
     "animate.css": "3.5.2",
+    "primeng": "latest",
+    "wowjs": "latest",
+    "ngx-bootstrap": "latest",
     "bootstrap": "^3.3.7"
   },
   "devDependencies": {
